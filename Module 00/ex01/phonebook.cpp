@@ -48,7 +48,7 @@ int Phonebook::cont_input() const
 		std::cout << "Please enter the contact index: ";
 		std::cin >> input;
 		if (std::cin.fail())
-			exit(0);
+			return (9999);
 		else if (input < 0 || input > 8)
 			std::cout << "Invalid index; please re-enter." << std::endl;
 		else
@@ -60,6 +60,8 @@ int Phonebook::cont_input() const
 void Phonebook::search_contact() const
 {
 	int i = this->cont_input();
+	if (i == 9999)
+		return ;
 	this->contacts[i].printContactInfo(i, 1);
 }
 

@@ -28,13 +28,13 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-	@printf "$(GREEN) Phonebook is Ready"
+	@printf "$(GREEN) Phonebook is Ready\n"
 
 clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf "$(YELLOW) OBJ files removed"
+	@printf "$(YELLOW) OBJ files removed\n"
 
 re: fclean all

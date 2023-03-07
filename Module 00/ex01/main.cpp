@@ -29,6 +29,6 @@ int main()
         else if (cmd == "SEARCH")
             book.search_contact();
         else if (cmd == "EXIT")
-            std::exit(0);
+            break ;
     }
 }

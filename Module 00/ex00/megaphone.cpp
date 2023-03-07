@@ -19,7 +19,7 @@ int main(int ac, char **av)
 
     if (ac == 1)
         std::cout<<"* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    for (i = 1; av[i] != '\0'; i++)
+    for (i = 1; av[i]; i++)
     {
         for (j = 0; av[i][j]; j++)
             av[i][j] = (char)toupper(av[i][j]);

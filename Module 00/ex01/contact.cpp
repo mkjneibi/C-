@@ -24,8 +24,8 @@ std::string Contact::_input(std::string str) const
         std::cout << str << std::flush;
         if (std::getline(std::cin, input) && !input.empty())
             break;
-        else if (std::cin.fail())
-			exit(0);
+        else if (std::cin.eof())
+			break ;
         std::cin.clear();
         std::cout << "Invalid input; please try again." << std::endl;
     }
