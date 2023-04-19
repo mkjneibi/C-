@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 14:12:48 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/03/06 22:03:39 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:49:21 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,3 @@ void Fixed::setRawBits(int const raw)
 {
     this->number = raw;
 }
-

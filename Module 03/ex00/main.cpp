@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 16:44:11 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/03/12 23:32:24 by mealjnei         ###   ########.fr       */
+/*   Created: 2023/04/17 16:48:29 by mealjnei          #+#    #+#             */
+/*   Updated: 2023/04/19 08:06:36 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "ClapTrap.hpp"
 
-Zombie::Zombie(std::string z_name)
+int main()
 {
-	this->name = z_name;
-	std::cout << "Zombie object " << this->name << " is created" << std::endl;
-}
+    ClapTrap a("ClapTrap");
+    ClapTrap b("ClapTrap");
+    ClapTrap c("ClapTrap");
 
-Zombie::~Zombie()
-{
-	std::cout << "Zombie object " << this->name << " is destroyed" << std::endl;
-}
+    a.attack("ClapTrap");
+    b.attack("ClapTrap");
+    c.attack("ClapTrap");
 
-//indicating that the Zombie object is making a sound.
-void	Zombie::announce()
-{
-	std::cout << this->name << " BraiiiiiiinnnzzzZ" << std::endl;
+    a.takeDamage(10);
+    b.takeDamage(10);
+    c.takeDamage(10);
+
+    a.beRepaired(10);
+    b.beRepaired(10);
+    c.beRepaired(10);
+    return (0);
 }

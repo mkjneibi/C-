@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:44:14 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/02/25 17:59:59 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:31:52 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void    randomChump(std::string name)
 {
     Zombie  x = Zombie(name);
-    x.announce();
+    x.announce(); // Call the announce() method on the Zombie instance
 }

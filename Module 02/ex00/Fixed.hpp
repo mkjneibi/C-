@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 14:12:49 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/03/05 15:30:09 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:40:27 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class Fixed
 {
 	private :
-	int					number;
-	static const int	f_bits = 8;
+	int					number; //holds the value of the fixed-point number
+	static const int	f_bits = 8; //that holds the number of fractional bits
 
 	public :
 	Fixed(); //default constructor
