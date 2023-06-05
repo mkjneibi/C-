@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:25:47 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/04/19 08:10:20 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:25:25 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::~ScavTrap()
 {
+    std::cout << "ScavTrap destrcutor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string n)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 08:13:38 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/04/19 08:18:35 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/04 15:27:28 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ FragTrap::FragTrap() : ClapTrap()
 
 FragTrap::~FragTrap()
 {
+    std::cout << "FragTrap destrucotr called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string n)
