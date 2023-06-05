@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 08:13:38 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/06/04 15:27:28 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:00:24 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ FragTrap::FragTrap() : ClapTrap()
     this->hit_points = 100;
     this->energy_points = 100;
     this->attack_damage = 30;
-    std::cout << "FragTrap " << this->Name << " is created" << std::endl;
+    std::cout << "FragTrap " << this->Name << " is created with "<< std::endl;
+    std::cout << this->hit_points << " hit points"<< std::endl;
+    std::cout << this->energy_points << " energy points"<< std::endl;
+    std::cout << this->attack_damage << " attack damage"<< std::endl;
 }
 
 FragTrap::~FragTrap()
@@ -32,18 +35,27 @@ FragTrap::FragTrap(std::string n)
     this->hit_points = 100;
     this->energy_points = 100;
     this->attack_damage = 30;
-    std::cout << "FragTrap " << this->Name << " is created" << std::endl;
+    std::cout << "FragTrap " << this->Name << " is created with "<< std::endl;
+    std::cout << this->hit_points << " hit points"<< std::endl;
+    std::cout << this->energy_points << " energy points"<< std::endl;
+    std::cout << this->attack_damage << " attack damage"<< std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
+FragTrap::FragTrap(const FragTrap &copy)
 {
+    std::cout << "Copy Constructor" << std::endl;
     *this = copy;
 }
 
 FragTrap & FragTrap::operator = (const FragTrap &copy)
 {
-    if (this != &copy)
-        *this = copy;
+    std::cout << "Copy Assignment Operator" << std::endl;
+    if (this == &copy)
+        return *this;
+    Name = copy.Name;
+	hit_points = copy.hit_points;
+	energy_points = copy.energy_points;
+	attack_damage = copy.attack_damage;
     return(*this);
 }
 
@@ -56,33 +68,11 @@ void FragTrap::attack(const std::string &target)
         this->energy_points--;
     }
     else
+    {
         std::cout << "FragTrap " << this->Name << " has no energy points to attack" << std::endl;
-}
-
-void FragTrap::takeDamage(unsigned int amount)
-{
-    if (this->hit_points > 0)
-    {
-        std::cout << "FragTrap " << this->Name << " takes " << amount << " points of damage!" << std::endl;
-        this->hit_points -= amount;
-        if (this->hit_points < 0)
-            this->hit_points = 0;
     }
-    else
-        std::cout << "FragTrap " << this->Name << " has no hit points to take damage" << std::endl;
-}
-
-void FragTrap::beRepaired(unsigned int amount)
-{
-    if (this->hit_points > 0)
-    {
-        std::cout << "FragTrap " << this->Name << " is repaired by " << amount << " points!" << std::endl;
-        this->hit_points += amount;
-        if (this->hit_points > 100)
-            this->hit_points = 100;
-    }
-    else
-        std::cout << "FragTrap " << this->Name << " has no hit points to be repaired" << std::endl;
+    std::cout << "FragTrap " << this->Name << " has " << this->energy_points << " energy points left " << std::endl;
+    std::cout << "FragTrap " << this->Name << " has " << this->hit_points << " hit points left " << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)

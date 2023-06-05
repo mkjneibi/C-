@@ -6,7 +6,7 @@
 /*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:48:43 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/04/17 17:00:35 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:46:08 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class ClapTrap
 {
-    private :
+    protected:
     std::string Name;
     int hit_points;
     int energy_points;

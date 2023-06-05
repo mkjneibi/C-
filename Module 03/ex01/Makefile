@@ -6,11 +6,11 @@
 #    By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 16:47:17 by mealjnei          #+#    #+#              #
-#    Updated: 2023/04/17 17:25:57 by mealjnei         ###   ########.fr        #
+#    Updated: 2023/06/05 16:23:11 by mealjnei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= ClapTrap
+NAME		= ScavTrap
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-	@printf "$(GREEN) ClapTrap is Ready"
+	@printf "$(GREEN) ScavTrap is Ready"
 
 clean:
 	@$(RM) $(OBJ)

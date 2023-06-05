@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:48:35 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/06/04 15:24:46 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/05 16:11:08 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ ClapTrap::ClapTrap(std::string n)
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
+    std::cout << "Copy constructor called" << std::endl;
     *this = copy;
 }
 
 ClapTrap & ClapTrap::operator = (const ClapTrap &copy)
 {
+    std::cout << "Copy Assignement Operator" << std::endl;
     if (this != &copy)
         *this = copy;
     return(*this);

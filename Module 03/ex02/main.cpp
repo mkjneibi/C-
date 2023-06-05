@@ -3,40 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:48:29 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/06/04 15:30:54 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:00:44 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ClapTrap a("ClapTrap1");
-    ClapTrap b("ClapTrap2");
-    ClapTrap c("ClapTrap3");
+    // ClapTrap a("Jhon");
+    // ClapTrap b("Enemy");
+    // std::cout << std::endl;
+    // a.attack("Enemy");
+    // b.attack("Jhon");
+    // std::cout << std::endl;
+    // a.takeDamage(10);
+    // b.takeDamage(10);
+    // std::cout << std::endl;
+    // a.beRepaired(10);
+    // b.beRepaired(10);
+    // std::cout << std::endl;
 
-    std::cout << std::endl;
+    // ScavTrap c("Alex");
+    // ScavTrap d("Enemy2");
+    // std::cout << std::endl;
+    // c.attack("Enemy2");
+    // d.attack("Alex");
+    // std::cout << std::endl;
+    // c.takeDamage(10);
+    // d.takeDamage(10);
+    // std::cout << std::endl;
+    // c.beRepaired(10);
+    // d.beRepaired(10);
+    // std::cout << std::endl;
 
-    a.attack("ClapTrap3");
-    b.attack("ClapTrap1");
-    c.attack("ClapTrap2");
-
-    std::cout << std::endl;
-
-    a.takeDamage(10);
-    b.takeDamage(10);
-    c.takeDamage(10);
-
-    std::cout << std::endl;
-
-    a.beRepaired(10);
-    b.beRepaired(10);
-    c.beRepaired(10);
-
-    std::cout << std::endl;
-
+    FragTrap e("Sam");
+    FragTrap f=e;
+    // FragTrap f("Enemy3");
+    // std::cout << std::endl;
+    // e.attack("Enemy3");
+    // f.attack("Sam");
+    // std::cout << std::endl;
+    // e.takeDamage(10);
+    // f.takeDamage(10);
+    // std::cout << std::endl;
+    // e.beRepaired(10);
+    // f.beRepaired(10);
+    // std::cout << std::endl;
     return (0);
 }

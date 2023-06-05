@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:25:47 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/06/04 15:28:23 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:01:31 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,21 @@ ScavTrap::ScavTrap(std::string n)
     std::cout << "ScavTrap " << this->Name << " is created" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
+ScavTrap::ScavTrap(const ScavTrap &copy)
 {
+    std::cout << "Copy constructor" << std::endl;
     *this = copy;
 }
 
 ScavTrap & ScavTrap::operator = (const ScavTrap &copy)
 {
-    if (this != &copy)
-        *this = copy;
+    std::cout << "Copy Assignement Operator" << std::endl;
+    if (this == &copy)
+        return *this;
+    Name = copy.Name;
+	hit_points = copy.hit_points;
+	energy_points = copy.energy_points;
+	attack_damage = copy.attack_damage;
     return(*this);
 }
 
@@ -56,30 +62,11 @@ void ScavTrap::attack(const std::string &target)
     }
     else
         std::cout << "ScavTrap " << this->Name << " has no energy points to attack" << std::endl;
+    std::cout << "ScavTrap " << this->Name << " has " << this->energy_points << " energy points left " << std::endl;
+    std::cout << "ScavTrap " << this->Name << " has " << this->hit_points << " hit points left " << std::endl;
 }
 
-void ScavTrap::takeDamage(unsigned int amount)
+void ScavTrap::guardGate()
 {
-    if (this->hit_points > 0)
-    {
-        std::cout << "ScavTrap " << this->Name << " takes " << amount << " points of damage!" << std::endl;
-        this->hit_points -= amount;
-        if (this->hit_points < 0)
-            this->hit_points = 0;
-    }
-    else
-        std::cout << "ScavTrap " << this->Name << " has no hit points to take damage" << std::endl;
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-    if (this->hit_points > 0)
-    {
-        std::cout << "ScavTrap " << this->Name << " is repaired by " << amount << " points!" << std::endl;
-        this->hit_points += amount;
-        if (this->hit_points > 100)
-            this->hit_points = 100;
-    }
-    else
-        std::cout << "ScavTrap " << this->Name << " has no hit points to be repaired" << std::endl;
+    std::cout << this->Name << " is now in Gatekeeper mode" << std::endl;
 }
