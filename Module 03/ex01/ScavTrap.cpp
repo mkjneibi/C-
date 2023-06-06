@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:25:47 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/06/05 17:02:00 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:21:06 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-    this->Name = "ScavTrap";
+    this->Name = "Default ScavTrap";
     this->hit_points = 100;
     this->energy_points = 50;
     this->attack_damage = 20;

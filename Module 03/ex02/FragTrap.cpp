@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 08:13:38 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/06/05 17:00:24 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:23:38 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-    this->Name = "FragTrap";
+    this->Name = "Default FragTrap";
     this->hit_points = 100;
     this->energy_points = 100;
     this->attack_damage = 30;
@@ -22,6 +22,7 @@ FragTrap::FragTrap() : ClapTrap()
     std::cout << this->hit_points << " hit points"<< std::endl;
     std::cout << this->energy_points << " energy points"<< std::endl;
     std::cout << this->attack_damage << " attack damage"<< std::endl;
+    std::cout << std::endl;
 }
 
 FragTrap::~FragTrap()
@@ -38,7 +39,7 @@ FragTrap::FragTrap(std::string n)
     std::cout << "FragTrap " << this->Name << " is created with "<< std::endl;
     std::cout << this->hit_points << " hit points"<< std::endl;
     std::cout << this->energy_points << " energy points"<< std::endl;
-    std::cout << this->attack_damage << " attack damage"<< std::endl;
+    std::cout << this->attack_damage << " attack damage\n"<< std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &copy)

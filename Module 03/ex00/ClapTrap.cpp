@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:48:35 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/06/05 17:02:13 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:21:27 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
+    std::cout <<" ClapTrap default constructor called" << std::endl;
     Name = "default";
     hit_points = 10;
     energy_points = 10;
