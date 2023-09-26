@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mealjnei <mealjnei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mealjnei <mealjnei@student.42.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:48:29 by mealjnei          #+#    #+#             */
-/*   Updated: 2023/06/06 13:13:14 by mealjnei         ###   ########.fr       */
+/*   Updated: 2023/06/07 15:13:35 by mealjnei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    ClapTrap a("Jhon");
+    ClapTrap a;
     std::cout << std::endl;
     a.attack("Enemy");
     a.takeDamage(10);
