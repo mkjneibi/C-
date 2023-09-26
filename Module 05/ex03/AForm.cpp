@@ -54,20 +54,11 @@ const char* AForm::GradeTooLowException::what() const throw()
     return "Grade is too low";
 }
 
-AForm::AForm(const AForm &copy)
-{
-    std::cout << "AForm copy constructor called" << std::endl;
-    *this = copy;
-}
-
 AForm &AForm::operator=(const AForm &copy)
 {
-    std::cout << "AForm assignment operator called" << std::endl;
+    std::cout << "Form assignment operator called" << std::endl;
     if (this != &copy)
-    {
-        name = copy.name;
         signedStatus = copy.signedStatus;
-    }
     return (*this);
 }
 

@@ -9,15 +9,14 @@
 class Form
 {
     private:
-        std::string name;
+        const std::string name;
         bool signedStatus;
-        int gradeToSign;
-        int gradeToExecute;
+        const int gradeToSign;
+        const int gradeToExecute;
 
     public:
         Form(const std::string& name, int gradeToSign, int gradeToExecute);
         virtual ~Form(); // Added a virtual destructor
-        Form(const Form &copy);
         Form &operator=(const Form &copy);
         const std::string& getName() const;
         bool isSigned() const;
