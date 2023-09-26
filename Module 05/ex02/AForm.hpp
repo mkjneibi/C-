@@ -9,16 +9,15 @@
 class AForm
 {
     private:
-        std::string name;
+        const std::string name;
         bool signedStatus;
-        int gradeToSign;
-        int gradeToExecute;
+        const int gradeToSign;
+        const int gradeToExecute;
 
     public:
         AForm(const std::string& name, int gradeToSign, int gradeToExecute);
         virtual ~AForm();
         AForm();
-        AForm(const AForm &copy);
         AForm &operator=(const AForm &copy);
         const std::string& getName() const;
         bool isSigned() const;

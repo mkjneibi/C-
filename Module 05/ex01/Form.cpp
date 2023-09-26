@@ -47,20 +47,11 @@ const char* Form::GradeTooLowException::what() const throw()
     return "Grade is too low";
 }
 
-Form::Form(const Form &copy)
-{
-    std::cout << "Form copy constructor called" << std::endl;
-    *this = copy;
-}
-
 Form &Form::operator=(const Form &copy)
 {
     std::cout << "Form assignment operator called" << std::endl;
     if (this != &copy)
-    {
-        name = copy.name;
         signedStatus = copy.signedStatus;
-    }
     return (*this);
 }
 

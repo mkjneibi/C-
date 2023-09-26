@@ -12,13 +12,6 @@ class AForm;
 
 class Intern
 {
-    public:
-        Intern();
-        ~Intern();
-        Intern(const Intern &copy);
-        Intern &operator=(const Intern &copy);
-        AForm* makeForm(const std::string& formName, const std::string& target);
-
     private:
         typedef AForm* (*FormCreationFunction)(const std::string&);
         FormCreationFunction formCreators[3];
@@ -26,6 +19,13 @@ class Intern
         static AForm* createPresidentialPardonForm(const std::string& target);
         static AForm* createRobotomyRequestForm(const std::string& target);
         static AForm* createShrubberyCreationForm(const std::string& target);
+
+    public:
+        Intern();
+        ~Intern();
+        Intern(const Intern &copy);
+        Intern &operator=(const Intern &copy);
+        AForm* makeForm(const std::string& formName, const std::string& target);
 };
 
 #endif
