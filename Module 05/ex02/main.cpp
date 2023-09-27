@@ -6,45 +6,75 @@
 
 int main()
 {
-    try {
+    try
+    {
+        std::cout << "------------------------------------" << std::endl;
         Bureaucrat bureaucrat("John", 50);
         std::cout << bureaucrat << std::endl;
 
         std::cout << "------------------------------------" << std::endl;
-
-        // Create instances of the forms
-        ShrubberyCreationForm shrubberyForm("Home");
-        RobotomyRequestForm robotomyForm("Alice");
-        PresidentialPardonForm presidentialForm("Bob");
-
-        // Sign the forms
-        shrubberyForm.beSigned(bureaucrat);
-        robotomyForm.beSigned(bureaucrat);
-        presidentialForm.beSigned(bureaucrat);
-
-        std::cout << shrubberyForm << std::endl;
-        std::cout << robotomyForm << std::endl;
-        std::cout << presidentialForm << std::endl;
+        try
+        {
+            ShrubberyCreationForm shrubberyForm("Home");
+            shrubberyForm.beSigned(bureaucrat);
+            std::cout << shrubberyForm << std::endl;
+            shrubberyForm.execute(bureaucrat);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
 
         std::cout << "------------------------------------" << std::endl;
-
-        // Execute the forms
-        bureaucrat.executeForm(shrubberyForm);
-        bureaucrat.executeForm(robotomyForm);
-        bureaucrat.executeForm(presidentialForm);
-
-        std::cout << "------------------------------------" << std::endl;
-
-        // Testing executeForm with an unsigned form
-        ShrubberyCreationForm unsignedShrubberyForm("Garden");
-        bureaucrat.executeForm(unsignedShrubberyForm);
-
-        // Testing executeForm with a form that requires a higher grade
-        Bureaucrat lowGradeBureaucrat("LowGrade", 10);
-        robotomyForm.beSigned(lowGradeBureaucrat);
-        lowGradeBureaucrat.executeForm(robotomyForm);
+        try
+        {
+            RobotomyRequestForm robotomyForm("Alice");
+            robotomyForm.beSigned(bureaucrat);
+            std::cout << robotomyForm << std::endl;
+            robotomyForm.execute(bureaucrat);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
 
         std::cout << "------------------------------------" << std::endl;
+        try
+        {
+            PresidentialPardonForm presidentialForm("Bob");
+            presidentialForm.beSigned(bureaucrat);
+            std::cout << presidentialForm << std::endl;
+            presidentialForm.execute(bureaucrat);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+
+        std::cout << "------------------------------------" << std::endl;
+        try
+        {
+            // Testing executeForm with an unsigned form
+            ShrubberyCreationForm unsignedShrubberyForm("Garden");
+            bureaucrat.executeForm(unsignedShrubberyForm);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+        try
+        {
+            Bureaucrat lowGradeBureaucrat("LowGrade", 10);
+            std::cout << lowGradeBureaucrat << std::endl;
+            RobotomyRequestForm robotomyForm("LowGrade");
+            robotomyForm.beSigned(lowGradeBureaucrat);
+            lowGradeBureaucrat.executeForm(robotomyForm);
+            std::cout << "------------------------------------" << std::endl;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
 
     } catch (const std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
