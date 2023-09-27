@@ -4,7 +4,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main() {
+int main()
+{
     try {
         Bureaucrat bureaucrat("John", 50);
         std::cout << bureaucrat << std::endl;
@@ -14,23 +15,30 @@ int main() {
         // Create instances of the forms
         ShrubberyCreationForm shrubberyForm("Home");
         RobotomyRequestForm robotomyForm("Alice");
-        PresidentialPardonForm pardonForm("Bob");
 
         // Sign the forms
         shrubberyForm.beSigned(bureaucrat);
         robotomyForm.beSigned(bureaucrat);
-        pardonForm.beSigned(bureaucrat);
 
         std::cout << shrubberyForm << std::endl;
         std::cout << robotomyForm << std::endl;
-        std::cout << pardonForm << std::endl;
 
         std::cout << "------------------------------------" << std::endl;
 
         // Execute the forms
-        shrubberyForm.execute(bureaucrat);
-        robotomyForm.execute(bureaucrat);
-        pardonForm.execute(bureaucrat);
+        bureaucrat.executeForm(shrubberyForm);
+        bureaucrat.executeForm(robotomyForm);
+
+        std::cout << "------------------------------------" << std::endl;
+
+        // Testing executeForm with an unsigned form
+        ShrubberyCreationForm unsignedShrubberyForm("Garden");
+        bureaucrat.executeForm(unsignedShrubberyForm);
+
+        // Testing executeForm with a form that requires a higher grade
+        Bureaucrat lowGradeBureaucrat("LowGrade", 10);
+        robotomyForm.beSigned(lowGradeBureaucrat);
+        lowGradeBureaucrat.executeForm(robotomyForm);
 
         std::cout << "------------------------------------" << std::endl;
 

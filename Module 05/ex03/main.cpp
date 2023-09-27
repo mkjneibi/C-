@@ -8,7 +8,7 @@ int main()
     AForm *rre;
 
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    std::cout << "------------------------------------" << std::endl;
+    std::cout << "-----------------------------------" << std::endl;
     rre = Random.makeForm("", "Bender");
     if (rrf || rre)
     {

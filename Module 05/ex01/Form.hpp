@@ -4,7 +4,10 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -22,7 +25,7 @@ class Form
         bool isSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
-        
+
         void beSigned(const Bureaucrat &bureaucrat);
 
         class GradeTooHighException : public std::exception
@@ -41,3 +44,4 @@ class Form
 std::ostream& operator<<(std::ostream& os, const Form& form);
 
 #endif
+
