@@ -37,6 +37,11 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() <= gradeToSign)
         signedStatus = true;
+    else
+    {
+        std::cout << "Bureaucrat " << bureaucrat.getName() << " cannot sign " << name << std::endl;
+        throw GradeTooLowException();
+    }
 }
 
 const char* AForm::NotSignedException::what() const throw()

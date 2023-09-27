@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat(): name("default"), grade(2) {}
+
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
     if (grade < 1)
@@ -72,7 +74,6 @@ void Bureaucrat::decrementGrade()
         throw GradeTooLowException();
     }
 }
-
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
