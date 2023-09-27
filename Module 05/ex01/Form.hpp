@@ -19,7 +19,7 @@ class Form
 
     public:
         Form(const std::string& name, int gradeToSign, int gradeToExecute);
-        virtual ~Form();
+        virtual ~Form(); //proper resource cleanup
         Form &operator=(const Form &copy);
         const std::string& getName() const;
         bool isSigned() const;

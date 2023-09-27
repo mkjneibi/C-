@@ -15,19 +15,23 @@ int main()
         // Create instances of the forms
         ShrubberyCreationForm shrubberyForm("Home");
         RobotomyRequestForm robotomyForm("Alice");
+        PresidentialPardonForm presidentialForm("Bob");
 
         // Sign the forms
         shrubberyForm.beSigned(bureaucrat);
         robotomyForm.beSigned(bureaucrat);
+        presidentialForm.beSigned(bureaucrat);
 
         std::cout << shrubberyForm << std::endl;
         std::cout << robotomyForm << std::endl;
+        std::cout << presidentialForm << std::endl;
 
         std::cout << "------------------------------------" << std::endl;
 
         // Execute the forms
         bureaucrat.executeForm(shrubberyForm);
         bureaucrat.executeForm(robotomyForm);
+        bureaucrat.executeForm(presidentialForm);
 
         std::cout << "------------------------------------" << std::endl;
 

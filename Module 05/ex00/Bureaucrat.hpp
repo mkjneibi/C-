@@ -21,12 +21,14 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
 
+        //nested class methods to define custom exception
+        //types specific to Bureaucrat class
         class GradeTooHighException : public std::exception
         {
             public:
                 const char* what() const throw();
         };
-
+        //what() to provide error messages when exceptions are thrown.
         class GradeTooLowException : public std::exception
         {
             public:
