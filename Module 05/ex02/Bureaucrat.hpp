@@ -2,9 +2,6 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 
 class Bureaucrat
 {

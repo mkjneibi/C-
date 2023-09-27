@@ -55,7 +55,7 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 AForm &AForm::operator=(const AForm &copy)
 {
-    std::cout << "Form assignment operator called" << std::endl;
+    std::cout << "AForm assignment operator called" << std::endl;
     if (this != &copy)
         signedStatus = copy.signedStatus;
     return (*this);
@@ -63,7 +63,7 @@ AForm &AForm::operator=(const AForm &copy)
 
 std::ostream& operator<<(std::ostream& os, const AForm& form)
 {
-    os << "Form: " << form.getName()
+    os << "AForm: " << form.getName()
     << ", Signed: " << (form.isSigned() ? "Yes" : "No")
     << ", Grade to Sign: " << form.getGradeToSign()
     << ", Grade to Execute: " << form.getGradeToExecute();

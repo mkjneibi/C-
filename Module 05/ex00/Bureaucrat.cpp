@@ -15,6 +15,19 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 
 Bureaucrat::~Bureaucrat() {}
 
+Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+{
+    std::cout << "Bureaucrat copy constructor called" << std::endl;
+    *this = copy;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
+{
+    std::cout << "Bureaucrat assignment operator called" << std::endl;
+    if (this != &copy)
+        grade = copy.grade;
+    return (*this);
+}
 
 const std::string Bureaucrat::getName() const
 {
@@ -24,6 +37,16 @@ const std::string Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
     return grade;
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return "Grade is too high";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Grade is too low";
 }
 
 void Bureaucrat::incrementGrade()
@@ -50,29 +73,6 @@ void Bureaucrat::decrementGrade()
     }
 }
 
-const char *Bureaucrat::GradeTooHighException::what() const throw()
-{
-    return "Grade is too high";
-}
-
-const char *Bureaucrat::GradeTooLowException::what() const throw()
-{
-    return "Grade is too low";
-}
-
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
-{
-    std::cout << "Bureaucrat copy constructor called" << std::endl;
-    *this = copy;
-}
-
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
-{
-    std::cout << "Bureaucrat assignment operator called" << std::endl;
-    if (this != &copy)
-        grade = copy.grade;
-    return (*this);
-}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {

@@ -16,14 +16,14 @@ class Form
 
     public:
         Form(const std::string& name, int gradeToSign, int gradeToExecute);
-        virtual ~Form(); // Added a virtual destructor
+        virtual ~Form();
         Form &operator=(const Form &copy);
         const std::string& getName() const;
         bool isSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
-
-        void beSigned(const Bureaucrat& bureaucrat);
+        
+        void beSigned(const Bureaucrat &bureaucrat);
 
         class GradeTooHighException : public std::exception
         {
