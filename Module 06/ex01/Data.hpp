@@ -5,12 +5,12 @@
 
 class Data
 {
+    private:
+        int value_;
+
     public:
         Data(int value) : value_(value) {}
         int getValue() const { return value_; }
-
-    private:
-        int value_;
 };
 
 #endif

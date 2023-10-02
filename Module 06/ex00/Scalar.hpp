@@ -9,14 +9,18 @@
 
 class ScalarConverter
 {
-    public:
-        static void convert(const std::string& value);
-
     private:
         static void charConversion(const std::string& value);
         static void intConversion(const std::string& value);
         static void floatConversion(const std::string& value);
         static void doubleConversion(const std::string& value);
+
+    public:
+        ScalarConverter();
+        ~ScalarConverter();
+        ScalarConverter(const ScalarConverter &copy);
+        ScalarConverter &operator=(const ScalarConverter &copy);
+        static void convert(const std::string& value);
 };
 
 #endif

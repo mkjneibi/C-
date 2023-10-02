@@ -1,6 +1,28 @@
 #include "Scalar.hpp"
 
-void ScalarConverter::convert(const std::string& value)
+ScalarConverter::ScalarConverter()
+{
+    std::cout << "Default constructor called" << std::endl;
+}
+
+ScalarConverter::~ScalarConverter()
+{
+    std::cout << "Default destructor called" << std::endl;
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &copy)
+{
+    *this = copy;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy)
+{
+    if (this != &copy)
+        return *this;
+    return *this;
+}
+
+void ScalarConverter::convert(const std::string &value)
 {
     if (value.length() == 1 && std::isprint(value[0]))
         charConversion(value);

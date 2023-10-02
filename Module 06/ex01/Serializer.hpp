@@ -8,7 +8,7 @@ class Data;
 class Serializer
 {
     public:
-        static unsigned long serialize(Data* ptr);
+        static unsigned long serialize(Data *ptr);
         static Data* deserialize(unsigned long raw);
 };
 
