@@ -59,14 +59,16 @@ bool Scalar::isChar() const {
 }
 
 bool Scalar::isInt() const {
-    char *endptr;
+    char *endptr; //It's used to check the parsing status after the conversion
     long val = std::strtol(m_literal.c_str(), &endptr, 10);
+
+    //long val is for stroing long integer
+    // strtol will update this pointer to point to the first character after the parsed integer
     if (val == 0 && m_literal == "0") {
         return true;
     }
     return *endptr == '\0';
 }
-
 
 bool Scalar::isFloat() const {
     size_t len = m_literal.length();
