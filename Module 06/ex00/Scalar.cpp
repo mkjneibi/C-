@@ -1,124 +1,166 @@
+
+// Converter.cpp
 #include "Scalar.hpp"
 
-ScalarConverter::ScalarConverter()
+Scalar::Scalar() {}
+
+Scalar::Scalar(Scalar const &source)
 {
-    std::cout << "Default constructor called" << std::endl;
+    *this = source;
 }
 
-ScalarConverter::~ScalarConverter()
+Scalar &Scalar::operator=(Scalar const &data)
 {
-    std::cout << "Default destructor called" << std::endl;
-}
-
-ScalarConverter::ScalarConverter(const ScalarConverter &copy)
-{
-    *this = copy;
-}
-
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &copy)
-{
-    if (this != &copy)
-        return *this;
+    if (this != &data)
+        this->m_literal = data.m_literal;
     return *this;
 }
 
-void ScalarConverter::convert(const std::string &value)
+Scalar::~Scalar() {}
+
+ //function to set the value of m_literal with the input string
+void Scalar::setLiteral(std::string literal)
 {
-    if (value.length() == 1 && std::isprint(value[0]))
-        charConversion(value);
-    else
-    {
-        intConversion(value);
-        floatConversion(value);
-        doubleConversion(value);
-    }
+    this->m_literal = literal;
 }
 
-void ScalarConverter::charConversion(const std::string& value)
+//converting the stored m_literal into different data types (convertion process)
+void Scalar::convert()
 {
-    char c = value[0];
-    std::cout << "char: '" << c << "'" << std::endl;
+    std::cout << "Scalar::convert" << std::endl;
+    std::cout << m_literal << std::endl;
+    if (m_literal == "0")
+        printForInt(0);
+    else if(isChar())
+        printForChar(m_literal[0]);
+    else if(isInt())
+        printForInt(std::atoi(m_literal.c_str()));
+    else if(isFloat())
+        printForFloat(std::atof(m_literal.c_str()));
+    else if(isDouble())
+        printForDouble(std::atof(m_literal.c_str()));
+    else
+        std::cerr << "Invalid Literal" << std::endl;
+}
+
+void Scalar::processConversion()
+{
+    if (this->isInt())
+        this->printForInt(std::stoi(this->m_literal));
+    else if (this->isFloat())
+        this->printForFloat(std::stof(this->m_literal));
+    else if (this->isDouble())
+        this->printForDouble(std::stod(this->m_literal));
+    else if (this->isChar())
+        this->printForChar(this->m_literal[0]);
+    else
+        std::cerr << "Error: The provided literal does not match any expected formats." << std::endl;
+}
+
+
+bool Scalar::isChar() const
+{
+    return m_literal.size() == 1 && std::isprint(m_literal[0]) && !std::isdigit(m_literal[0]);
+}
+
+bool Scalar::isInt() const
+{
+    char *endptr;
+    long val = std::strtol(m_literal.c_str(), &endptr, 10);
+    if (val == 0 && m_literal == "0")
+        return true;
+    return *endptr == '\0';
+}
+
+
+bool Scalar::isFloat() const
+{
+    size_t len = m_literal.length();
+    if (len == 0) return false;
+
+    // Check for special float literals
+    if (m_literal == "-inff" || m_literal == "+inff" || m_literal == "nanf")
+        return true;
+
+    // Check if it ends with 'f'
+    if (m_literal[len - 1] != 'f' && m_literal[len - 1] != 'F')
+        return false;
+
+    // For simplicity, we'll just check the rest of the string using strtod. If it's a valid number, we consider it a float
+    char* endptr;
+    std::strtod(m_literal.c_str(), &endptr);
+
+    return *endptr == 'f' || *endptr == 'F';
+}
+
+bool Scalar::isDouble() const
+{
+    // Check for special double literals
+    if (m_literal == "-inf" || m_literal == "+inf" || m_literal == "nan")
+        return true;
+
+    char* endptr;
+    std::strtod(m_literal.c_str(), &endptr);
+
+    return *endptr == '\0';
+}
+
+void Scalar::printForChar(char c) const
+{
+    std::cout << "char: ";
+    if (std::isprint(c))
+        std::cout << "'" << c << "'" << std::endl;
+    else
+        std::cout << "Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(c) << std::endl;
     std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
     std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 }
 
-void ScalarConverter::intConversion(const std::string &value)
+void Scalar::printForInt(int i) const
 {
-    char *endptr;
-    long l = std::strtol(value.c_str(), &endptr, 10);
-
-    if (*endptr == '\0')
-    {
-        int i = static_cast<int>(l);
-        std::cout << "char: ";
-        if (std::isprint(static_cast<char>(i)))
-        {
-            std::cout << "'" << static_cast<char>(i) << "'";
-        }
-        else
-        {
-            std::cout << "Non displayable" << std::endl;
-            return;
-        }
-        std::cout << std::endl;
-        std::cout << "int: " << i << std::endl;
-        std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
-        std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
-    }
+    std::cout << "char: ";
+    if (i == 0)
+        std::cout << "Non displayable" << std::endl;
+    else if (i >= 32 && i <= 126) // Printable ASCII range
+        std::cout << "'" << static_cast<char>(i) << "'" << std::endl;
+    else
+        std::cout << "Non displayable" << std::endl;
+    std::cout << "int: " << i << std::endl;
+    std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
 }
 
-void ScalarConverter::floatConversion(const std::string& value)
+void Scalar::printForFloat(float f) const
 {
-    char *endptr;
-    float f = std::strtof(value.c_str(), &endptr);
-
-    if (*endptr == '\0')
-    {
-        std::cout << "char: ";
-        if (std::isprint(static_cast<char>(f)))
-            std::cout << "'" << static_cast<char>(f) << "'";
-        else
-        {
-            std::cout << "Non displayable" << std::endl;
-            return;
-        }
-        std::cout << "int: ";
-        if (f >= INT_MIN && f <= INT_MAX)
-            std::cout << static_cast<int>(f);
-        else
-            std::cout << "impossible" << std::endl;
-        std::cout << "float: " << f << "f" << std::endl;
-        std::cout << "double: " << static_cast<double>(f) << std::endl;
-    }
+    std::cout << "char: ";
+    int i = static_cast<int>(f);
+    if (i >= 32 && i <= 126)  // Printable ASCII range
+        std::cout << "'" << static_cast<char>(i) << "'" << std::endl;
+    else
+        std::cout << "impossible" << std::endl;
+    std::cout << "int: ";
+    if (f < INT_MIN || f > INT_MAX)
+        std::cout << "impossible" << std::endl;
+    else
+        std::cout << i << std::endl;
+    std::cout << "float: " << f << "f" << std::endl;
+    std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
 
-void ScalarConverter::doubleConversion(const std::string& value)
+void Scalar::printForDouble(double d) const
 {
-    char* endptr;
-    double d = std::strtod(value.c_str(), &endptr);
-
-    if (*endptr == '\0')
-    {
-        std::cout << "char: ";
-        if (std::isprint(static_cast<char>(d)))
-            std::cout << "'" << static_cast<char>(d) << "'";
-        else
-        {
-            std::cout << "Non displayable" << std::endl;
-            return;
-        }
-        std::cout << "int: ";
-        if (d >= INT_MIN && d <= INT_MAX)
-            std::cout << static_cast<int>(d);
-        else
-            std::cout << "impossible" << std::endl;
-        std::cout << "float: ";
-        if (d >= -FLT_MAX && d <= FLT_MAX)
-            std::cout << static_cast<float>(d) << "f";
-        else
-            std::cout << "impossible" << std::endl;
-        std::cout << "double: " << d << std::endl;
-    }
+    std::cout << "char: ";
+    int i = static_cast<int>(d);
+    if (i >= 32 && i <= 126) // Printable ASCII range
+        std::cout << "'" << static_cast<char>(i) << "'" << std::endl;
+    else
+        std::cout << "impossible" << std::endl;
+    std::cout << "int: ";
+    if (d < INT_MIN || d > INT_MAX)
+        std::cout << "impossible" << std::endl;
+    else
+        std::cout << i << std::endl;
+    std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+    std::cout << "double: " << d << std::endl;
 }
-

@@ -1,26 +1,42 @@
+// Converter.hpp
 #ifndef SCALAR_HPP
 #define SCALAR_HPP
 
-#include <string>
 #include <iostream>
-#include <cstdlib>
-#include <climits>
-#include <cfloat>
+#include <cstdlib> //random number generation, memory allocation, string conversion
+#include <cmath> //mathematical operations
+#include <cctype> //character handling
+#include <sstream> //manipulate strings
+#include <climits> //integer-related constants
+#include <string>
 
-class ScalarConverter
+class Scalar
 {
     private:
-        static void charConversion(const std::string& value);
-        static void intConversion(const std::string& value);
-        static void floatConversion(const std::string& value);
-        static void doubleConversion(const std::string& value);
+        std::string m_literal; //to store the input literal that needs to be converted.
+
+        //functions used to check if the stored m_literal
+        //can be converted to char,int,flo,doub
+        bool isChar() const;
+        bool isInt() const;
+        bool isFloat() const;
+        bool isDouble() const;
+        //printing the result of the conversions
+        void printForChar(char c) const;
+        void printForInt(int i) const;
+        void printForFloat(float f) const;
+        void printForDouble(double d) const;
 
     public:
-        ScalarConverter();
-        ~ScalarConverter();
-        ScalarConverter(const ScalarConverter &copy);
-        ScalarConverter &operator=(const ScalarConverter &copy);
-        static void convert(const std::string& value);
+        Scalar();
+        Scalar(Scalar const &source);
+        Scalar &operator=(Scalar const &data);
+        ~Scalar();
+        void setLiteral(std::string literal);
+        void convert();
+        void processConversion();
+        // ^ performs the actual conversions and
+        //prints the results based on the type of the stored m_literal
 };
 
 #endif
