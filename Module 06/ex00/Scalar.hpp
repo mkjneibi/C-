@@ -9,6 +9,7 @@
 #include <sstream> //manipulate strings
 #include <climits> //integer-related constants
 #include <string>
+#include <iomanip>  // Required for setting stream precision
 
 class Scalar
 {

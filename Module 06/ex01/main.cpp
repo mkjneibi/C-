@@ -3,8 +3,7 @@
 
 int main()
 {
-    Data data(-11);
-
+    Data data(-122);
     unsigned long serializedPtr = Serializer::serialize(&data);
     Data* deserializedPtr = Serializer::deserialize(serializedPtr);
 
