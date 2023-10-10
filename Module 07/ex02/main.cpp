@@ -23,7 +23,6 @@ int main()
             std::cout << doubleArray[i] << " ";
         std::cout << std::endl;
 
-        // Trying to access an out-of-bounds index
         std::cout << "Accessing out-of-bounds index..." << std::endl;
         std::cout << intArray[10] << std::endl;
     }

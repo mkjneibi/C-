@@ -54,4 +54,4 @@ class Array
         }
 };
 
-#endif // ARRAY_HPP
+#endif
