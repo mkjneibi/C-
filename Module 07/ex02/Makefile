@@ -16,13 +16,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
 	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-	@printf "$(GREEN) Array is Ready\n"
 
 clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf "$(YELLOW) OBJ files removed\n"
 
 re: fclean all

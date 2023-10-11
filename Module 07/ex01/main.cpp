@@ -13,10 +13,8 @@ int main()
     std::cout << "Int array: ";
     iter(intArray, sizeof(intArray) / sizeof(intArray[0]), printElement<int>);
     std::cout << std::endl;
-
     std::cout << "Char array: ";
     iter(charArray, sizeof(charArray) / sizeof(charArray[0]), printElement<char>);
     std::cout << std::endl;
-
     return 0;
 }

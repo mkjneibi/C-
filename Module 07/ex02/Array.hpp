@@ -9,47 +9,50 @@ template <typename T>
 class Array
 {
     private:
-        T* data;
+        T *data;
         size_t arraySize;
 
     public:
-        Array() : data(NULL), arraySize(0) {}
-        Array(size_t n) : data(new T[n]), arraySize(n) {
-            for (size_t i = 0; i < arraySize; ++i) {
-                data[i] = T(); // Default initialization
-            }
+        Array() : data(NULL), arraySize(0){}
+        Array(unsigned int n) : data(new T[n]), arraySize(n)
+        {
+            for (size_t i = 0; i < arraySize; ++i)
+                data[i] = T();
         }
 
-        Array(const Array& other) : data(new T[other.arraySize]), arraySize(other.arraySize) {
-            for (size_t i = 0; i < arraySize; ++i) {
-                data[i] = other.data[i];
-            }
+        Array(const Array &copy) : data(new T[copy.arraySize]), arraySize(copy.arraySize)
+        {
+            for (size_t i = 0; i < arraySize; ++i)
+                data[i] = copy.data[i];
         }
 
-        Array& operator=(const Array& other) {
-            if (this != &other) {
+        Array &operator=(const Array &copy)
+        {
+            if (this != &copy)
+            {
                 delete[] data;
-                data = new T[other.arraySize];
-                arraySize = other.arraySize;
-                for (size_t i = 0; i < arraySize; ++i) {
-                    data[i] = other.data[i];
-                }
+                data = new T[copy.arraySize];
+                arraySize = copy.arraySize;
+                for (size_t i = 0; i < arraySize; ++i)
+                    data[i] = copy.data[i];
             }
             return *this;
         }
 
-        ~Array() {
+        ~Array()
+        {
             delete[] data;
         }
 
-        T& operator[](size_t index) {
-            if (index >= arraySize) {
+        T &operator[](size_t index)
+        {
+            if (index >= arraySize)
                 throw std::exception();
-            }
             return data[index];
         }
 
-        size_t size() const {
+        size_t size() const
+        {
             return arraySize;
         }
 };
