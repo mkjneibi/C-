@@ -11,6 +11,7 @@ int main()
         for (size_t i = 0; i < intArray.size(); ++i)
             std::cout << intArray[i] << " ";
         std::cout << std::endl;
+        std::cout << "size of array : " << size_t(intArray.size()) << std::endl;
 
         Array<double> doubleArray(3);
         for (size_t i = 0; i < doubleArray.size(); ++i)
@@ -20,6 +21,7 @@ int main()
         for (size_t i = 0; i < doubleArray.size(); ++i)
             std::cout << doubleArray[i] << " ";
         std::cout << std::endl;
+        std::cout << "size of array : " << size_t(doubleArray.size()) << std::endl;
 
         std::cout << "Accessing out-of-bounds index..." << std::endl;
         std::cout << intArray[10] << std::endl;
