@@ -14,14 +14,19 @@ class Array
 
     public:
         Array() : data(NULL), arraySize(0){}
-        Array(unsigned int n) : data(new T[n]), arraySize(n)
+
+        Array(unsigned int n)
         {
+            data = new T[n];
+            arraySize = n;
             for (size_t i = 0; i < arraySize; ++i)
                 data[i] = T();
         }
 
-        Array(const Array &copy) : data(new T[copy.arraySize]), arraySize(copy.arraySize)
+        Array(const Array &copy)
         {
+            data = new T[copy.arraySize];
+            arraySize = copy.arraySize;
             for (size_t i = 0; i < arraySize; ++i)
                 data[i] = copy.data[i];
         }
