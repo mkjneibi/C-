@@ -5,7 +5,7 @@ int main()
     try {
         Array<int> intArray(5);
         for (size_t i = 0; i < intArray.size(); ++i)
-            intArray[i] = i * 10;
+            intArray[i] = i;
 
         std::cout << "Int array: ";
         for (size_t i = 0; i < intArray.size(); ++i)

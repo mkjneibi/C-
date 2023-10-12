@@ -11,10 +11,10 @@ int main()
     int intArray[] = {1, 2, 3, 4, 5};
     char charArray[] = {'a', 'b', 'c', 'd', 'e'};
     std::cout << "Int array: ";
-    iter(intArray, sizeof(intArray) / sizeof(intArray[0]), printElement<int>);
+    iter(intArray, 5, printElement<int>);
     std::cout << std::endl;
     std::cout << "Char array: ";
-    iter(charArray, sizeof(charArray) / sizeof(charArray[0]), printElement<char>);
+    iter(charArray, 5, printElement<char>);
     std::cout << std::endl;
     return 0;
 }
