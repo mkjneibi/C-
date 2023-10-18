@@ -8,6 +8,7 @@ class Span {
 public:
     Span(unsigned int N);
     void addNumber(int number);
+    void addNumbers(const std::vector<int>& numbers); // Function to add a range of numbers
     int shortestSpan() const;
     int longestSpan() const;
 

@@ -14,6 +14,16 @@ void Span::addNumber(int number) {
     }
 }
 
+void Span::addNumbers(const std::vector<int>& newNumbers) {
+    if (numbers.size() + newNumbers.size() > N) {
+        throw std::runtime_error("Not enough space in Span to add all numbers.");
+    }
+
+    for (size_t i = 0; i < newNumbers.size(); ++i) {
+        numbers.push_back(newNumbers[i]);
+    }
+}
+
 int Span::shortestSpan() const {
     if (numbers.size() <= 1) {
         throw std::runtime_error("No span can be found.");

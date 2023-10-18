@@ -1,40 +1,62 @@
 #include "Span.hpp"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <vector>
 
-// int main() {
-//     std::srand(static_cast<unsigned>(std::time(0)));
+int main() {
+        try {
+        std::cout << "Welcome to ex01 - Span" << std::endl;
+        std::cout << "first test we will add 6 numbers one by one" << std::endl;
+        Span span(6);
 
-//     try {
-//         Span span(10000); // Set N to 10,000
+        span.addNumber(1);
+        span.addNumber(2);
+        span.addNumber(3);
+        span.addNumber(4);
+        span.addNumber(5);
+        span.addNumber(6);
 
-//         for (int i = 0; i < 10000; ++i) {
-//             span.addNumber(std::rand() % 10000);
-//         }
+        int shortest = span.shortestSpan();
+        int longest = span.longestSpan();
 
-//         int shortest = span.shortestSpan();
-//         int longest = span.longestSpan();
+        std::cout << "Shortest Span: " << shortest << std::endl;
+        std::cout << "Longest Span: " << longest << std::endl;
+    } catch (const std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    try {
+        std::cout << "second test we will add 10 numbers at once" << std::endl;
+        Span span(10);
 
-//         std::cout << "Shortest Span: " << shortest << std::endl;
-//         std::cout << "Longest Span: " << longest << std::endl;
-//     } catch (const std::exception &e) {
-//         std::cout << "Exception: " << e.what() << std::endl;
-//     }
+        std::vector<int> numbersToAdd;
+        for (int i = 1; i <= 10; ++i) {
+            numbersToAdd.push_back(i);
+        }
 
-//     return 0;
-// }
+        span.addNumbers(numbersToAdd);
 
-//////////////////////// 42 Test //////////////////////////
-int main()
-{
-    Span sp = Span(5);
-    sp.addNumber(6);
-    sp.addNumber(3);
-    sp.addNumber(17);
-    sp.addNumber(9);
-    sp.addNumber(11);
-    std::cout << sp.shortestSpan() << std::endl;
-    std::cout << sp.longestSpan() << std::endl;
+        int shortest = span.shortestSpan();
+        int longest = span.longestSpan();
+
+        std::cout << "Shortest Span: " << shortest << std::endl;
+        std::cout << "Longest Span: " << longest << std::endl;
+    } catch (const std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    try {
+        std::cout << "third test we will add 5 numbers at one at a time from the subject should produce: ";
+        std::cout << "Shortest Span: 2 ";
+        std::cout << "Longest Span: 14" << std::endl;
+        Span sp = Span(5);
+        sp.addNumber(6);
+        sp.addNumber(3);
+        sp.addNumber(17);
+        sp.addNumber(9);
+        sp.addNumber(11);
+        std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
+    } catch (const std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
     return 0;
 }
