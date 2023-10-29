@@ -4,8 +4,6 @@ int main( void )
 {
     int a = 2;
     int b = 3;
-    //:: operator to specify that we are
-    //using the global scope version of the swap function template
     std::cout << "---------------------------------"<< std::endl;
     std::cout << "Befor Swap"<< std::endl;
     std::cout << "a = " << a << ", b = " << b << std::endl;
